@@ -1,0 +1,15 @@
+graph DataFlow {
+  user[label="User"]
+  browser[label="Browser"]
+  jsApp[label="JS App"]
+  nginx0[label="nginx /"]
+  nginx[label="nginx /api/update"]
+  tornado[label="tornado /update/"]
+  mongo[label="Mongo"]
+  user -- browser
+  browser -- nginx0
+  jsApp
+  jsApp -- nginx[label=" json again; html goes home!(?)"]
+  nginx -- tornado[label=" json"]
+  tornado -- mongo[label=" json"]
+}
